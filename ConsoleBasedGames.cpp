@@ -113,6 +113,7 @@ public:
 int main()
 {
     int choice;
+    char again;
     cout << "Welcome to Console Based Game" << endl
          << endl;
 label_choice:
@@ -151,6 +152,10 @@ label_choice:
         break;
     }
     }
+    cout << "Enter Y to Play Again : ";
+    cin >> again;
+    if( again == 'y' || again == 'Y' )
+        goto label_choice;
 label_exit:
     cout << "Thank You For Playing The Game" << endl
          << "Made by\n23AIML056 - Kavya Prajapati\n23AIML057 - Puja Rachh\n23AIML076 - Dax Virani";
