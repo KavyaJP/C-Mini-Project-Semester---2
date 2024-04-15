@@ -2,6 +2,8 @@
 #include<bits/stdc++.h>
 #include<conio.h>
 #include<windows.h>
+#include<cstdlib>
+#include<ctime>
 using namespace std;
 class TicTacToe
 {
@@ -300,6 +302,32 @@ public:
         }
     }
 };
+
+class Game {
+public:
+    int num1;
+    int n;
+
+    Game() {
+        //Generates different number every time we run the program
+        srand(time(0));
+        //Generates a random number between 0 and 100
+        num1 = 1+(rand()%100);
+
+    }
+    void takeUserInput() {
+        cout<<"Guess the number between 1 to 100"<<endl;
+        cin>> n;
+    }
+    bool isCorrect(){
+        if(n == num1){
+            return true;
+        }
+        else{
+                return false;
+        }
+    }
+};
 int main()
 {
     int choice;
@@ -339,6 +367,26 @@ label_choice:
     }
     case 3:
     {
+         bool b=false;
+        Game g;
+        int count=0;
+       while (b!=true )
+       {
+           g.takeUserInput();
+           if(g.n< g.num1)
+           {
+               cout<<"Too small try again"<<endl;
+           }
+           if(g.n> g.num1)
+           {
+               cout<<"Too large try again"<<endl;
+           }
+           b= g.isCorrect();
+           //counts number of guesses
+           count++;
+
+       }
+        cout<<"\n\n Congrats You won!!\n No. of guesses are:"<< count<<endl;
         break;
     }
     case 4:
@@ -359,6 +407,6 @@ label_choice:
         goto label_choice;
 label_exit:
     cout << "Thank You For Playing The Game" << endl
-         << "Made by\n23AIML056 - Kavya Prajapati\n23AIML057 - Puja Rachh\n23AIML076 - Dax Virani";
+         << "Made by\n23AIML056 - Kavya Prajapati\n23AIML057 - Puja Rachchh\n23AIML076 - Dax Virani";
     return 0;
 }
